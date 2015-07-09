@@ -1,0 +1,209 @@
+﻿@model IEnumerable<BandejaoApp.Models.DiaDaSemanaModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cardápio da Semana</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Dias da Semana
+        </th>
+        <th>
+            Prato Principal 1
+        </th>
+        <th>
+            Prato Principal 2
+        </th>
+        <th>
+            Guarnição
+        </th>
+        <th>
+            Salada 1
+        </th>
+        <th>
+            Salada 2
+        </th>
+        <th>
+            Salada 3
+        </th>
+        <th>
+            Acompanhamentos
+        </th>
+        <th>
+            Sobremesa
+        </th>
+        <th>
+            Chá
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><b>Segunda</b></td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.PratoPrincipal1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.PratoPrincipal2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.Guarnicao)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.Salada1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.Salada2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.Salada3)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.Acompanhamentos)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.Sobremesa)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Segunda.Cha)
+            </td>
+        </tr>
+        <tr>
+            <td><b>Terça</b></td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.PratoPrincipal1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.PratoPrincipal2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.Guarnicao)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.Salada1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.Salada2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.Salada3)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.Acompanhamentos)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.Sobremesa)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Terca.Cha)
+            </td>
+        </tr>
+        <tr>
+            <td><b>Quarta</b></td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.PratoPrincipal1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.PratoPrincipal2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.Guarnicao)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.Salada1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.Salada2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.Salada3)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.Acompanhamentos)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.Sobremesa)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quarta.Cha)
+            </td>
+        </tr>
+        <tr>
+            <td><b>Quinta</b></td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.PratoPrincipal1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.PratoPrincipal2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.Guarnicao)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.Salada1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.Salada2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.Salada3)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.Acompanhamentos)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.Sobremesa)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Quinta.Cha)
+            </td>
+        </tr>
+        <tr>
+            <td><b>Sexta</b></td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.PratoPrincipal1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.PratoPrincipal2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.Guarnicao)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.Salada1)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.Salada2)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.Salada3)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.Acompanhamentos)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.Sobremesa)
+            </td>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Sexta.Cha)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DiaDaSemanaId }) |
+                @Html.ActionLink("Details", "Details", new {id = item.DiaDaSemanaId}) | 
+                @Html.ActionLink("Delete", "Delete", new { id = item.DiaDaSemanaId })
+            </td>
+        </tr>
+    }
+</table>

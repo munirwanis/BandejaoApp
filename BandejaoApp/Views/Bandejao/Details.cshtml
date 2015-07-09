@@ -1,0 +1,358 @@
+﻿@model BandejaoApp.Models.DiaDaSemanaModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DiaDaSemanaModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Segunda)
+        </dt>
+
+        <dd><b>Prato Principal 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.PratoPrincipal1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Prato Principal 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.PratoPrincipal2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Guarnição:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.Guarnicao)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.Salada1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.Salada2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 3:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.Salada3)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Acompanhamentos:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.Acompanhamentos)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Sobremesa:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.Sobremesa)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Chá:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Segunda.Cha)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+
+        <dt>
+            Terça@*@Html.DisplayNameFor(model => model.Terca)*@
+        </dt>
+
+        <dd><b>Prato Principal 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.PratoPrincipal1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Prato Principal 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.PratoPrincipal2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Guarnição:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.Guarnicao)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.Salada1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.Salada2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 3:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.Salada3)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Acompanhamentos:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.Acompanhamentos)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Sobremesa:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.Sobremesa)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Chá:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Terca.Cha)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quarta)
+        </dt>
+
+        <dd><b>Prato Principal 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.PratoPrincipal1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Prato Principal 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.PratoPrincipal2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Guarnição:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.Guarnicao)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.Salada1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.Salada2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 3:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.Salada3)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Acompanhamentos:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.Acompanhamentos)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Sobremesa:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.Sobremesa)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Chá:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quarta.Cha)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quinta)
+        </dt>
+
+        <dd><b>Prato Principal 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.PratoPrincipal1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Prato Principal 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.PratoPrincipal2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Guarnição:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.Guarnicao)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.Salada1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.Salada2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 3:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.Salada3)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Acompanhamentos:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.Acompanhamentos)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Sobremesa:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.Sobremesa)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Chá:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Quinta.Cha)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexta)
+        </dt>
+
+        <dd><b>Prato Principal 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.PratoPrincipal1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Prato Principal 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.PratoPrincipal2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Guarnição:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.Guarnicao)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 1:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.Salada1)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 2:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.Salada2)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Salada 3:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.Salada3)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Acompanhamentos:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.Acompanhamentos)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Sobremesa:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.Sobremesa)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+        <dd><b>Chá:</b></dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sexta.Cha)
+        </dd>
+        <dd>
+            &nbsp;
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DiaDaSemanaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
