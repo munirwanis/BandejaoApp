@@ -7,13 +7,11 @@ using System.Web;
 
 namespace BandejaoApp.Models
 {
-    public class CardapioModel
+    public class CardapioItemModel
     {
         [Key]
-        public int CardapioId { get; set; }
-
-        public int DiaDaSemana { get; set; }
-
-        public ICollection<CardapioItemModel> Itens { get; set; }
+        public int CardapioItemId { get; set; }
+        
+        public string Nome { get; set; }
     }
 }

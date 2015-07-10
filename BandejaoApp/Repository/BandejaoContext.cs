@@ -11,9 +11,13 @@ namespace BandejaoApp.Repository
     {
         public BandejaoContext() : base("BandejaoContext")
         {
-            
+
         }
 
-        public DbSet<DiaDaSemanaModel> DiaDaSemana { get; set; }
+        public DbSet<VotesModel> Votes { get; set; }
+
+        public DbSet<CardapioItemModel> CardapioItem { get; set; }
+
+        public DbSet<CardapioModel> Cardapio { get; set; }
     }
 }

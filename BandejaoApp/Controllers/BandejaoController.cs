@@ -18,7 +18,7 @@ namespace BandejaoApp.Controllers
         // GET: Bandejao
         public ActionResult Index()
         {
-            return View(db.DiaDaSemana.ToList());
+            return View(db.Cardapio.ToList());
         }
 
         // GET: Bandejao/Details/5
@@ -28,12 +28,12 @@ namespace BandejaoApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDaSemanaModel diaDaSemanaModel = db.DiaDaSemana.Find(id);
-            if (diaDaSemanaModel == null)
+            CardapioModel cardapioModel = db.Cardapio.Find(id);
+            if (cardapioModel == null)
             {
                 return HttpNotFound();
             }
-            return View(diaDaSemanaModel);
+            return View(cardapioModel);
         }
 
         // GET: Bandejao/Create
@@ -47,16 +47,16 @@ namespace BandejaoApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DiaDaSemanaId,Segunda,Terca,Quarta,Quinta,Sexta")] DiaDaSemanaModel diaDaSemanaModel)
+        public ActionResult Create([Bind(Include = "CardapioId,DiaDaSemana")] CardapioModel cardapioModel)
         {
             if (ModelState.IsValid)
             {
-                db.DiaDaSemana.Add(diaDaSemanaModel);
+                db.Cardapio.Add(cardapioModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(diaDaSemanaModel);
+            return View(cardapioModel);
         }
 
         // GET: Bandejao/Edit/5
@@ -66,12 +66,12 @@ namespace BandejaoApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDaSemanaModel diaDaSemanaModel = db.DiaDaSemana.Find(id);
-            if (diaDaSemanaModel == null)
+            CardapioModel cardapioModel = db.Cardapio.Find(id);
+            if (cardapioModel == null)
             {
                 return HttpNotFound();
             }
-            return View(diaDaSemanaModel);
+            return View(cardapioModel);
         }
 
         // POST: Bandejao/Edit/5
@@ -79,15 +79,15 @@ namespace BandejaoApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DiaDaSemanaId,Segunda,Terca,Quarta,Quinta,Sexta")] DiaDaSemanaModel diaDaSemanaModel)
+        public ActionResult Edit([Bind(Include = "CardapioId,DiaDaSemana")] CardapioModel cardapioModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(diaDaSemanaModel).State = EntityState.Modified;
+                db.Entry(cardapioModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(diaDaSemanaModel);
+            return View(cardapioModel);
         }
 
         // GET: Bandejao/Delete/5
@@ -97,12 +97,12 @@ namespace BandejaoApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaDaSemanaModel diaDaSemanaModel = db.DiaDaSemana.Find(id);
-            if (diaDaSemanaModel == null)
+            CardapioModel cardapioModel = db.Cardapio.Find(id);
+            if (cardapioModel == null)
             {
                 return HttpNotFound();
             }
-            return View(diaDaSemanaModel);
+            return View(cardapioModel);
         }
 
         // POST: Bandejao/Delete/5
@@ -110,8 +110,8 @@ namespace BandejaoApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DiaDaSemanaModel diaDaSemanaModel = db.DiaDaSemana.Find(id);
-            db.DiaDaSemana.Remove(diaDaSemanaModel);
+            CardapioModel cardapioModel = db.Cardapio.Find(id);
+            db.Cardapio.Remove(cardapioModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
