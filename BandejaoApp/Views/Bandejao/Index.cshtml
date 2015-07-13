@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BandejaoApp.Models.CardapioModel>
+﻿@model IEnumerable<BandejaoApp.Models.CardapioItemModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DiaDaSemana)
+            @Html.DisplayNameFor(model => model.CardapioModel.DiaDaSemana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th></th>
     </tr>
@@ -20,12 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.DiaDaSemana)
+            @Html.DisplayFor(modelItem => item.CardapioModel.DiaDaSemana)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CardapioId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CardapioId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CardapioId })
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CardapioItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CardapioItemId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CardapioItemId })
         </td>
     </tr>
 }

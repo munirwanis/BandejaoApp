@@ -1,4 +1,4 @@
-﻿@model BandejaoApp.Models.CardapioModel
+﻿@model BandejaoApp.Models.CardapioItemModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,20 +7,28 @@
 <h2>Details</h2>
 
 <div>
-    <h4>CardapioModel</h4>
+    <h4>CardapioItemModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.DiaDaSemana)
+            @Html.DisplayNameFor(model => model.CardapioModel.DiaDaSemana)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DiaDaSemana)
+            @Html.DisplayFor(model => model.CardapioModel.DiaDaSemana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CardapioId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CardapioItemId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

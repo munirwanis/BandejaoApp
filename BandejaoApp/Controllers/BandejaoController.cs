@@ -18,7 +18,8 @@ namespace BandejaoApp.Controllers
         // GET: Bandejao
         public ActionResult Index()
         {
-            return View(db.Cardapio.ToList());
+            var cardapioItem = db.CardapioItem.Include(c => c.CardapioModel);
+            return View(cardapioItem.ToList());
         }
 
         // GET: Bandejao/Details/5
@@ -28,17 +29,18 @@ namespace BandejaoApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CardapioModel cardapioModel = db.Cardapio.Find(id);
-            if (cardapioModel == null)
+            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
+            if (cardapioItemModel == null)
             {
                 return HttpNotFound();
             }
-            return View(cardapioModel);
+            return View(cardapioItemModel);
         }
 
         // GET: Bandejao/Create
         public ActionResult Create()
         {
+            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana");
             return View();
         }
 
@@ -47,16 +49,17 @@ namespace BandejaoApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CardapioId,DiaDaSemana")] CardapioModel cardapioModel)
+        public ActionResult Create([Bind(Include = "CardapioItemId,Nome,CardapioId")] CardapioItemModel cardapioItemModel)
         {
             if (ModelState.IsValid)
             {
-                db.Cardapio.Add(cardapioModel);
+                db.CardapioItem.Add(cardapioItemModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cardapioModel);
+            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana", cardapioItemModel.CardapioId);
+            return View(cardapioItemModel);
         }
 
         // GET: Bandejao/Edit/5
@@ -66,12 +69,13 @@ namespace BandejaoApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CardapioModel cardapioModel = db.Cardapio.Find(id);
-            if (cardapioModel == null)
+            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
+            if (cardapioItemModel == null)
             {
                 return HttpNotFound();
             }
-            return View(cardapioModel);
+            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana", cardapioItemModel.CardapioId);
+            return View(cardapioItemModel);
         }
 
         // POST: Bandejao/Edit/5
@@ -79,15 +83,16 @@ namespace BandejaoApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CardapioId,DiaDaSemana")] CardapioModel cardapioModel)
+        public ActionResult Edit([Bind(Include = "CardapioItemId,Nome,CardapioId")] CardapioItemModel cardapioItemModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cardapioModel).State = EntityState.Modified;
+                db.Entry(cardapioItemModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cardapioModel);
+            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana", cardapioItemModel.CardapioId);
+            return View(cardapioItemModel);
         }
 
         // GET: Bandejao/Delete/5
@@ -97,12 +102,12 @@ namespace BandejaoApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CardapioModel cardapioModel = db.Cardapio.Find(id);
-            if (cardapioModel == null)
+            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
+            if (cardapioItemModel == null)
             {
                 return HttpNotFound();
             }
-            return View(cardapioModel);
+            return View(cardapioItemModel);
         }
 
         // POST: Bandejao/Delete/5
@@ -110,8 +115,8 @@ namespace BandejaoApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CardapioModel cardapioModel = db.Cardapio.Find(id);
-            db.Cardapio.Remove(cardapioModel);
+            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
+            db.CardapioItem.Remove(cardapioItemModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

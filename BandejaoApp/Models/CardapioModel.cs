@@ -12,7 +12,7 @@ namespace BandejaoApp.Models
         [Key]
         public int CardapioId { get; set; }
 
-        public int DiaDaSemana { get; set; }
+        public string DiaDaSemana { get; set; }
 
         public ICollection<CardapioItemModel> Itens { get; set; }
     }

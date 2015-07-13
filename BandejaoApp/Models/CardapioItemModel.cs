@@ -13,5 +13,13 @@ namespace BandejaoApp.Models
         public int CardapioItemId { get; set; }
         
         public string Nome { get; set; }
+
+
+        public int CardapioId { get; set; }
+
+        [ForeignKey("CardapioId")]
+        public CardapioModel CardapioModel { get; set; }
+
+        public ICollection<VotesModel> Votes { get; set; }
     }
 }
