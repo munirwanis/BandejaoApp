@@ -12,6 +12,7 @@ namespace BandejaoApp.Models
         [Key]
         public int CardapioId { get; set; }
 
+        [Display(Name = "Dia da Semana")]
         public string DiaDaSemana { get; set; }
 
         public ICollection<CardapioItemModel> Itens { get; set; }

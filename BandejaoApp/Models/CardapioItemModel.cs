@@ -14,7 +14,7 @@ namespace BandejaoApp.Models
         
         public string Nome { get; set; }
 
-
+        [Display(Name = "Dia da Semana")]
         public int CardapioId { get; set; }
 
         [ForeignKey("CardapioId")]
