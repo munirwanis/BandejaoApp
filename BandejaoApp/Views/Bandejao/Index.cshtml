@@ -18,6 +18,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Votes)
+        </th>
         <th></th>
     </tr>
 
@@ -28,6 +31,15 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @if (item.Votes != null)
+            {
+                foreach (var voteItem in item.Votes)
+                {
+                    @Html.DisplayFor(mnodelItem => voteItem.Vote)
+                }
+            }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CardapioItemId }) |

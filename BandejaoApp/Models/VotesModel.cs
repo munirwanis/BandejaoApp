@@ -13,6 +13,7 @@ namespace BandejaoApp.Models
         [Key]
         public int VoteId { get; set; }
 
+        [Range(1,5)]
         public int Vote { get; set; }
 
         public int CardapioItemId { get; set; }

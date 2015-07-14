@@ -10,6 +10,7 @@ namespace BandejaoApp.Models
     public class CardapioItemModel
     {
         [Key]
+        [Display(Name = "Item do Cardápio")]
         public int CardapioItemId { get; set; }
         
         public string Nome { get; set; }
@@ -21,5 +22,7 @@ namespace BandejaoApp.Models
         public CardapioModel CardapioModel { get; set; }
 
         public ICollection<VotesModel> Votes { get; set; }
+
+        //public float MediaVotos { get; set; }
     }
 }

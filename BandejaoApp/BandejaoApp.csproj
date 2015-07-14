@@ -121,6 +121,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BandejaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VotesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +176,11 @@
     <Content Include="Views\Bandejao\Details.cshtml" />
     <Content Include="Views\Bandejao\Edit.cshtml" />
     <Content Include="Views\Bandejao\Index.cshtml" />
+    <Content Include="Views\Votes\Create.cshtml" />
+    <Content Include="Views\Votes\Delete.cshtml" />
+    <Content Include="Views\Votes\Details.cshtml" />
+    <Content Include="Views\Votes\Edit.cshtml" />
+    <Content Include="Views\Votes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

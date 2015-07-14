@@ -8,117 +8,115 @@ using System.Web;
 using System.Web.Mvc;
 using BandejaoApp.Models;
 using BandejaoApp.Repository;
-using Microsoft.Ajax.Utilities;
 
 namespace BandejaoApp.Controllers
 {
-    public class BandejaoController : Controller
+    public class VotesController : Controller
     {
         private BandejaoContext db = new BandejaoContext();
 
-        // GET: Bandejao
+        // GET: Votes
         public ActionResult Index()
         {
-            var cardapioItem = db.CardapioItem.Include(c => c.CardapioModel).Include(x => x.Votes);
-            
-            return View(cardapioItem.ToList());
+            var votes = db.Votes.Include(v => v.CardapioItem);
+            return View(votes.ToList());
         }
 
-        // GET: Bandejao/Details/5
+        // GET: Votes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
-            if (cardapioItemModel == null)
+            VotesModel votesModel = db.Votes.Find(id);
+            if (votesModel == null)
             {
                 return HttpNotFound();
             }
-            return View(cardapioItemModel);
+            return View(votesModel);
         }
 
-        // GET: Bandejao/Create
+        // GET: Votes/Create
         public ActionResult Create()
         {
-            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana");
+            ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome");
             return View();
         }
 
-        // POST: Bandejao/Create
+        // POST: Votes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CardapioItemId,Nome,CardapioId")] CardapioItemModel cardapioItemModel)
+        public ActionResult Create([Bind(Include = "VoteId,Vote,CardapioItemId")] VotesModel votesModel)
         {
             if (ModelState.IsValid)
             {
-                db.CardapioItem.Add(cardapioItemModel);
+                db.Votes.Add(votesModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana", cardapioItemModel.CardapioId);
-            return View(cardapioItemModel);
+            ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
+            return View(votesModel);
         }
 
-        // GET: Bandejao/Edit/5
+        // GET: Votes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
-            if (cardapioItemModel == null)
+            VotesModel votesModel = db.Votes.Find(id);
+            if (votesModel == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana", cardapioItemModel.CardapioId);
-            return View(cardapioItemModel);
+            ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
+            return View(votesModel);
         }
 
-        // POST: Bandejao/Edit/5
+        // POST: Votes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CardapioItemId,Nome,CardapioId")] CardapioItemModel cardapioItemModel)
+        public ActionResult Edit([Bind(Include = "VoteId,Vote,CardapioItemId")] VotesModel votesModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cardapioItemModel).State = EntityState.Modified;
+                db.Entry(votesModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CardapioId = new SelectList(db.Cardapio, "CardapioId", "DiaDaSemana", cardapioItemModel.CardapioId);
-            return View(cardapioItemModel);
+            ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
+            return View(votesModel);
         }
 
-        // GET: Bandejao/Delete/5
+        // GET: Votes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
-            if (cardapioItemModel == null)
+            VotesModel votesModel = db.Votes.Find(id);
+            if (votesModel == null)
             {
                 return HttpNotFound();
             }
-            return View(cardapioItemModel);
+            return View(votesModel);
         }
 
-        // POST: Bandejao/Delete/5
+        // POST: Votes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CardapioItemModel cardapioItemModel = db.CardapioItem.Find(id);
-            db.CardapioItem.Remove(cardapioItemModel);
+            VotesModel votesModel = db.Votes.Find(id);
+            db.Votes.Remove(votesModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
