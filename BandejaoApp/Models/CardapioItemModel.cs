@@ -23,6 +23,6 @@ namespace BandejaoApp.Models
 
         public ICollection<VotesModel> Votes { get; set; }
 
-        //public float MediaVotos { get; set; }
+        public double? MediaVotos { get; set; }
     }
 }

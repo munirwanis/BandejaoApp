@@ -20,7 +20,9 @@ namespace BandejaoApp.Controllers
         public ActionResult Index()
         {
             var cardapioItem = db.CardapioItem.Include(c => c.CardapioModel).Include(x => x.Votes);
-            
+
+            VotosMedia();
+
             return View(cardapioItem.ToList());
         }
 
@@ -121,6 +123,39 @@ namespace BandejaoApp.Controllers
             db.CardapioItem.Remove(cardapioItemModel);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // Calculando Media dos votos
+        public void VotosMedia()
+        {
+#warning criar uma função para essa region
+            #region criar média
+
+            var cardapioItem = db.CardapioItem.Include(x => x.Votes);
+            float media = 0;
+
+            foreach (var item in cardapioItem)
+            {
+                if (item.Votes.Count() != 0)
+                {
+                    //var itemCardapioDB = db.CardapioItem.Find(item.CardapioItemId);
+                    foreach (var voteItem in item.Votes)
+                    {
+                        media += voteItem.Vote;
+                    }
+
+                    media = media / item.Votes.Count();
+                    item.MediaVotos = media;
+                    //db.Entry(itemCardapioDB).State = EntityState.Modified;
+                    media = 0;
+                }
+            }
+            if (ModelState.IsValid)
+            {
+                //db.Entry(cardapioItem).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            #endregion
         }
 
         protected override void Dispose(bool disposing)

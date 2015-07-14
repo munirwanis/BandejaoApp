@@ -19,6 +19,7 @@ namespace BandejaoApp.Controllers
         public ActionResult Index()
         {
             var votes = db.Votes.Include(v => v.CardapioItem);
+
             return View(votes.ToList());
         }
 
@@ -59,6 +60,11 @@ namespace BandejaoApp.Controllers
             }
 
             ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
+
+            // Cria Média aqui
+            var bandejaoController = new BandejaoController();
+            bandejaoController.VotosMedia();
+
             return View(votesModel);
         }
 
@@ -92,6 +98,11 @@ namespace BandejaoApp.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
+            
+            // Cria Média aqui
+            var bandejaoController = new BandejaoController();
+            bandejaoController.VotosMedia();
+
             return View(votesModel);
         }
 
