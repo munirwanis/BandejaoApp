@@ -20,6 +20,10 @@ namespace BandejaoApp.Controllers
         {
             var votes = db.Votes.Include(v => v.CardapioItem);
 
+            // Cria Média aqui
+            var bandejaoController = new BandejaoController();
+            bandejaoController.VotosMedia();
+
             return View(votes.ToList());
         }
 
@@ -42,6 +46,7 @@ namespace BandejaoApp.Controllers
         public ActionResult Create()
         {
             ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome");
+
             return View();
         }
 
@@ -61,10 +66,6 @@ namespace BandejaoApp.Controllers
 
             ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
 
-            // Cria Média aqui
-            var bandejaoController = new BandejaoController();
-            bandejaoController.VotosMedia();
-
             return View(votesModel);
         }
 
@@ -80,6 +81,11 @@ namespace BandejaoApp.Controllers
             {
                 return HttpNotFound();
             }
+
+            // Cria Média aqui
+            var bandejaoController = new BandejaoController();
+            bandejaoController.VotosMedia();
+
             ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
             return View(votesModel);
         }
@@ -99,10 +105,6 @@ namespace BandejaoApp.Controllers
             }
             ViewBag.CardapioItemId = new SelectList(db.CardapioItem, "CardapioItemId", "Nome", votesModel.CardapioItemId);
             
-            // Cria Média aqui
-            var bandejaoController = new BandejaoController();
-            bandejaoController.VotosMedia();
-
             return View(votesModel);
         }
 

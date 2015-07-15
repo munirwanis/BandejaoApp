@@ -10,6 +10,7 @@ namespace BandejaoApp.Models
     public class CardapioModel
     {
         [Key]
+        [Display(Name = "Dia da Semana")]
         public int CardapioId { get; set; }
 
         [Display(Name = "Dia da Semana")]

@@ -21,8 +21,6 @@ namespace BandejaoApp.Controllers
         {
             var cardapioItem = db.CardapioItem.Include(c => c.CardapioModel).Include(x => x.Votes);
 
-            VotosMedia();
-
             return View(cardapioItem.ToList());
         }
 
@@ -126,37 +124,39 @@ namespace BandejaoApp.Controllers
         }
 
         // Calculando Media dos votos
+        #region Criar Média
         public void VotosMedia()
         {
-#warning criar uma função para essa region
-            #region criar média
-
+            // carrego os itens do cardápio com votos
             var cardapioItem = db.CardapioItem.Include(x => x.Votes);
             float media = 0;
 
+            // para cada item do cardápio verifico se possui algum voto
             foreach (var item in cardapioItem)
             {
                 if (item.Votes.Count() != 0)
                 {
-                    //var itemCardapioDB = db.CardapioItem.Find(item.CardapioItemId);
+                    // para vada voto somo na média a sua nota
                     foreach (var voteItem in item.Votes)
                     {
                         media += voteItem.Vote;
                     }
 
+                    // faço a média aritmética, guardo a média na tabela e zero a variável
                     media = media / item.Votes.Count();
                     item.MediaVotos = media;
-                    //db.Entry(itemCardapioDB).State = EntityState.Modified;
                     media = 0;
                 }
             }
+
+            // salvo as mudanças
             if (ModelState.IsValid)
             {
-                //db.Entry(cardapioItem).State = EntityState.Modified;
                 db.SaveChanges();
             }
-            #endregion
+
         }
+        #endregion
 
         protected override void Dispose(bool disposing)
         {
