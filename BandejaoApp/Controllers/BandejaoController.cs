@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BandejaoApp.Dto;
 using BandejaoApp.Models;
 using BandejaoApp.Repository;
 using Microsoft.Ajax.Utilities;
@@ -19,8 +20,8 @@ namespace BandejaoApp.Controllers
         // GET: Bandejao
         public ActionResult Index()
         {
-            var cardapioItem = db.CardapioItem.Include(c => c.CardapioModel).Include(x => x.Votes);
-
+            var cardapioItem = db.CardapioItem.Include(c => c.CardapioModel).Include(x => x.Votes).ToList();
+          
             return View(cardapioItem.ToList());
         }
 

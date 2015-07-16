@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BandejaoApp.Dto.CardapioDto>
+
+@{
+    ViewBag.Title = "DisplayCardapio";
+}
+
+<h2>Index</h2>
+
+<dl class="dl-horizontal">
+    @foreach (var item in Model)
+    {
+        <dt>
+            @Html.DisplayFor(modelItem => item.DiaDaSemana)
+        </dt>
+        <dd>&nbsp;</dd>
+        foreach (var pratoItem in item.PratosNotas)
+        {
+            if (pratoItem.MediaDoItem != null)
+            {
+                <dd>
+                    @Html.DisplayFor(prato => pratoItem.ItemDoCardapio) 
+                    | <b>Média: </b> @Html.ActionLink(pratoItem.MediaDoItem.ToString(), "Create", "Votes")
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    @Html.DisplayFor(prato => pratoItem.ItemDoCardapio)
+                    | <b>@Html.ActionLink("Vote!", "Create", "Votes")</b>
+                </dd>
+            }
+        }
+    }
+</dl>

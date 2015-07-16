@@ -21,33 +21,30 @@
         <th>
             @Html.DisplayNameFor(model => model.Votes)
         </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CardapioModel.DiaDaSemana)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MediaVotos)
-            @*@if (item.Votes != null)
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardapioModel.DiaDaSemana)
+            </td>
+            <td>
+                @Html.ActionLink(item.Nome, "Details", new {id = item.CardapioItemId})
+            </td>
+            @if (item.MediaVotos != null)
             {
-                foreach (var voteItem in item.Votes)
-                {
-                    @Html.DisplayFor(mnodelItem => voteItem.Vote)
-                }
-            }*@
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CardapioItemId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CardapioItemId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CardapioItemId })
-        </td>
-    </tr>
-}
+                <td>
+                    @Html.ActionLink("Vote!", "Create", "Votes") | Média: @Html.DisplayFor(modelItem => item.MediaVotos)
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.ActionLink("Vote!", "Create", "Votes")
+                </td>
+            }
+        </tr>
+    }
 
 </table>
